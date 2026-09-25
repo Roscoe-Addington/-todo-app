@@ -30,6 +30,7 @@ function App() {
         placeholder="Ny uppgift"
       />
       <button type="button" onClick={handleAdd}>
+        {/* Todo: detta skalar inte -behöver loop*/}
         Lägg till
       </button>
       <ul>
