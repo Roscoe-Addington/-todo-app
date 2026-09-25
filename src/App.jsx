@@ -34,9 +34,9 @@ function App() {
         Lägg till
       </button>
       <ul>
-        <li>{todos[0]}</li>
-        <li>{todos[1]}</li>
-        <li>{todos[2]}</li>
+        {todos.map((t) => (
+          <li key={t}>{t}</li>
+        ))}
       </ul>
     </main>
   );
