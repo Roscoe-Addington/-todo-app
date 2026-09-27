@@ -19,6 +19,13 @@ function App() {
     setDraft("");
   }
 
+  function handleRemove(textToRemove) {
+    const nyaTodos = todos.filter(function (todo) {
+      return todo !== textToRemove;
+    });
+    setTodos(nyaTodos);
+  }
+
   return (
     <main>
       <h1>Min Todo-app</h1>
@@ -30,13 +37,24 @@ function App() {
         placeholder="Ny uppgift"
       />
       <button type="button" onClick={handleAdd}>
-        {/* Todo: detta skalar inte -behöver loop*/}
         Lägg till
       </button>
       <ul>
-        {todos.map((t) => (
-          <li key={t}>{t}</li>
-        ))}
+        {todos.map(function (todo) {
+          return (
+            <li key={todo}>
+              {todo}
+              <button
+                type="button"
+                onClick={function () {
+                  handleRemove(todo);
+                }}
+              >
+                Ta bort
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </main>
   );
