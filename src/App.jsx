@@ -20,22 +20,16 @@ function App() {
   }
 
   function handleRemove(textToRemove) {
-    const nyaTodos = todos.filter(function (todo) {
+    const kvar = todos.filter(function (todo) {
       return todo !== textToRemove;
     });
-    setTodos(nyaTodos);
+    setTodos(kvar);
   }
 
   return (
     <main>
-      <h1>Min Todo-app</h1>
-      <p>Antal uppgifter: {todos.length}</p>
-      <input
-        type="text"
-        value={draft}
-        onChange={handleChange}
-        placeholder="Ny uppgift"
-      />
+      <h1>Todo-lista</h1>
+      <input value={draft} onChange={handleChange} />
       <button type="button" onClick={handleAdd}>
         Lägg till
       </button>
@@ -43,7 +37,7 @@ function App() {
         {todos.map(function (todo) {
           return (
             <li key={todo}>
-              {todo}
+              {todo}{" "}
               <button
                 type="button"
                 onClick={function () {
